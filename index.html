@@ -1,20 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <script src="/mini-coi.js" scope="./"></script> 
-    <title>PyScript Application Template</title>
-
-    <!-- Recommended meta tags -->
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0">
-
-    <!-- PyScript CSS -->
-    <link rel="stylesheet" href="https://pyscript.net/releases/2024.6.1/core.css">
-
-    <!-- This script tag bootstraps PyScript -->
-    <script type="module" src="https://pyscript.net/releases/2024.6.1/core.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amanda plays around with GitHub Pages x PyScript</title>
+    <style>
+        body {
+            font-family: Chalkduster, fantasy;
+            text-align: center;
+            background-color: #f0f0f0;
+        }
+        #changeColorBtn, #submitBtn {
+            padding: 10px 20px;
+            font-size: 16px;
+            margin: 20px;
+            cursor: pointer;
+        }
+        #funImage {
+            width: 300px;
+            height: 200px;
+            cursor: pointer;
+            margin: 20px;
+        }
+    </style>
 </head>
+<!-- This script tag bootstraps PyScript -->
+    <script type="module" src="https://pyscript.net/releases/2024.6.1/core.js"></script>
 <body>
+    <h1>Welcome to the Fun Interactive Website!</h1>
+    <button id="changeColorBtn">Change Background Color</button>
+    <br>
+    <img id="funImage" src="https://www.rollingstone.com/wp-content/uploads/2020/07/GettyImages-126114132.jpg?w=1581&h=1054&crop=1" alt="Fun Image">
+    <br>
+    <form id="funForm">
+        <label for="name">Enter your name: </label>
+        <input type="text" id="name" name="name" required>
+        <button type="submit" id="submitBtn">Submit</button>
+    </form>
+    <p id="message"></p>
+
+    <script>
+        document.getElementById('changeColorBtn').addEventListener('click', function() {
+            document.body.style.backgroundColor = '#' + Math.floor(Math.random()*16777215).toString(16);
+        });
+
+        document.getElementById('funImage').addEventListener('click', function() {
+            this.src = 'https://via.placeholder.com/300x200/0000FF/808080';
+        });
+
+        document.getElementById('funForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const name = document.getElementById('name').value;
+            document.getElementById('message').innerText = `Hello, ${name}! Thanks for visiting our fun website!`;
+        });
+    </script>
     <script type="mpy" src="./main.py" config="./config.json" terminal></script>
 </body>
 </html>
