@@ -11,8 +11,7 @@ def sampleFunc(event) :
               "The story of my life", "Even when the night changes, it'll never change me and you",
               "It's gotta be you", "Reality ruined my life",
               "We're like 'Na na na,' then we're like 'Yeah yeah yeah'",
-              "Baby I'm perfect for you", "You make me strong",
-              "I speak a different language, but I still hear you call"]
+              "Baby I'm perfect for you", "You make me strong"]
 
     print(random.choice(lyrics))
 
